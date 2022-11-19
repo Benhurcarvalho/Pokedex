@@ -1,8 +1,21 @@
-
-
 const pokeApi = {}
 
-pokeApi.getPokemonDetail = (pokemon) => fetch(pokemon.url).then((response) => response.json())
+function convertpokeApiDetailToPokemon(pokemonDetails) {
+    const pokemon = new Pokemon()
+    pokemon.number = pokemonDetails.order;
+    pokemon.name = pokemonDetails.name;
+
+    const types = pokemonDetails.types.map((e) => e.type.name)
+    const [type] = types;
+
+    pokemon.types = types;
+    pokemon.type = type;
+    pokemon.photo = pokemonDetails.sprites.other.dream_world.front_default;
+
+    return pokemon
+} 
+
+pokeApi.getPokemonDetail = (pokemon) => fetch(pokemon.url).then((response) => response.json()).then(convertpokeApiDetailToPokemon)
 
 
 pokeApi.getPokemons = (limit = 12, offset = 0) => {
@@ -13,8 +26,4 @@ pokeApi.getPokemons = (limit = 12, offset = 0) => {
                 .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
                 .then((detailRequests) => Promise.all(detailRequests))
                 .then((pokemonDetails) => pokemonDetails)
-
-                .catch((error) => console.error(`${error}
-                Ops! Algo de errado aconteceu, verifique sua internet e tente novamente`))
-                .finally(() => console.log('Requisição concluída-pokeApi'))
 }

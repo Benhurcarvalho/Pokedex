@@ -16,7 +16,7 @@ const convertpokemonListToHtml = (pokemon) => {
             </ol>
             <img src="${pokemon.photo}" alt="${pokemon.name}">
         </div>
-</li>
+    </li>
     `
 
 }

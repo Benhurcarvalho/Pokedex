@@ -77,3 +77,7 @@
     opacity: 1;
   }
 }
+
+.cart-pokemon {
+  border:rgb(202, 202, 202) solid 1px;
+}

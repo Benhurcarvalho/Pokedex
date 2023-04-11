@@ -1,11 +1,79 @@
 .edge-main {
   text-align: center;
-  background-color: blue;
+  background-color: rgb(202, 202, 202);
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
-  border-top: 5rem solid rgb(251,5,6);
-  border-left: 1rem solid rgb(251,5,6);
-  border-right: 1rem solid rgb(251,5,6);
+  border-top: 1rem solid rgb(251,5,6);
+  border-left: 0.5rem solid rgb(251,5,6);
+  border-right: 0.5rem solid rgb(251,5,6);
   border-bottom: 2rem solid rgb(251,5,6);
+}
+
+.header {
+  width: 100%;
+  height: 1rem;
+  background-color: rgb(251,5,6);
+}
+
+.balls {
+  align-items: flex-start;
+  display: flex;
+  padding: 15px;
+  width: 40%;
+  border-radius: 0 0 80px 0;
+  background-color: rgb(251,5,6);
+}
+
+.blue-ball {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: solid white 3px;
+  outline: 1px solid black;
+  background-color: rgb(7,250,254);
+  animation: piscar 1.5s infinite;
+  margin: 2px;
+}
+
+.red-ball {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid black 1px;
+  background-color: rgb(221,3,1);
+  animation: piscar 1s infinite;
+  margin: 2px;
+}
+
+.yellow-ball{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid black 1px;
+  background-color: rgb(254,251,48);
+  animation: piscar 1.1s infinite;
+  margin: 2px;
+}
+
+.green-ball{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid black 1px;
+  background-color: rgb(97,249,24);
+  animation: piscar 1.2s infinite;
+  margin: 2px;
+}
+
+@keyframes piscar {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
